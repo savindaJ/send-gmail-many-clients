@@ -14,19 +14,23 @@ public class SenderFormController {
 
     String [] split;
 
-    int countAt;
+    int countAt=0;
 
     public void btnStartOnAction(ActionEvent actionEvent) {
 
     }
 
     public void btnCheckOnAction(ActionEvent actionEvent) {
+        countAt=0;
+
         for (int i = 0; i < areaEmails.getText().length(); i++) {
             if (areaEmails.getText().charAt(i)=='@'){
                 countAt++;
+                System.out.println(countAt);
             }
         }
         split = areaEmails.getText().split("\n");
+        System.out.println(split.length);
 
         if (split.length == countAt){
             System.out.println("finalize !");
