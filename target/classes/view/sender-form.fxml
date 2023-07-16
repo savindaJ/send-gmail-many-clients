@@ -20,7 +20,7 @@
       <Label layoutX="86.0" layoutY="29.0" text="gmail List" />
       <Label layoutX="416.0" layoutY="77.0" text="Title" />
       <Label layoutX="772.0" layoutY="15.0" text="Send Finish" />
-      <MenuBar layoutX="9.0" layoutY="3.0" style="-fx-background-color: transparant;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutX="9.0" layoutY="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
