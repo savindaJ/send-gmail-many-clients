@@ -9,15 +9,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gmailsender.controller.SenderFormController">
    <children>
-      <TextArea layoutX="10.0" layoutY="54.0" prefHeight="505.0" prefWidth="215.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="54.0" />
-      <TextArea layoutX="599.0" layoutY="40.0" prefHeight="550.0" prefWidth="208.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-      <Button layoutX="417.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Start" />
-      <Button layoutX="9.0" layoutY="565.0" mnemonicParsing="false" text="Check" />
+      <TextArea fx:id="areaEmails" layoutX="10.0" layoutY="54.0" prefHeight="505.0" prefWidth="215.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="54.0" />
+      <TextArea fx:id="areaSendFinish" layoutX="599.0" layoutY="40.0" prefHeight="550.0" prefWidth="208.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <Button fx:id="btnStart" layoutX="417.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="25.0" prefWidth="50.0" text="Start" />
+      <Button fx:id="btnCheck" layoutX="9.0" layoutY="565.0" mnemonicParsing="false" onAction="#btnCheckOnAction" text="Check" />
       <TextField layoutX="260.0" layoutY="107.0" prefHeight="25.0" prefWidth="380.0" />
-      <TextArea layoutX="236.0" layoutY="163.0" prefHeight="318.0" prefWidth="438.0" />
+      <TextArea fx:id="areaMsg" layoutX="236.0" layoutY="163.0" prefHeight="318.0" prefWidth="438.0" />
       <Label layoutX="86.0" layoutY="29.0" text="gmail List" />
       <Label layoutX="416.0" layoutY="77.0" text="Title" />
       <Label layoutX="772.0" layoutY="15.0" text="Send Finish" />
@@ -25,7 +24,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="open" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
