@@ -66,7 +66,7 @@ public class SenderFormController {
         // Load client secrets.
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(gsonFactory,
                 new InputStreamReader(SenderFormController.class.getResourceAsStream
-                        ("/api/"))); // enter your credential
+                        ("/api/client_secret_7295180801-stoh56kfek35b7p9elaggd9tqi8a75aq.apps.googleusercontent.com.json"))); // enter your credential
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
                 HTTP_TRANSPORT, gsonFactory, clientSecrets, Set.of(GmailScopes.GMAIL_SEND))
@@ -116,9 +116,12 @@ public class SenderFormController {
     public void btnStartOnAction(ActionEvent actionEvent) {
         for (int i = 0; i < split.length; i++) {
             try {
-                sendMail(String.valueOf(txtTitle),areaMsg.getText(),TEST_MAIL);
+                sendMail(txtTitle.getText(),areaMsg.getText(),split[i]);
 
-                areaSendFinish.appendText(i+1+") successfully send = \n"+split[i]+"\n msg id"+msg.getId());
+                areaSendFinish.setStyle("-fx-text-fill: green");
+
+                areaSendFinish.appendText(i+1+") successfully send = \n"+split[i]+"\nmsg id"+msg.getId());
+
             } catch (IOException | MessagingException e) {
                 areaSendFinish.appendText(i+1+") not send = \n"+split[i]);
                 throw new RuntimeException(e);
