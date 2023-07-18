@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.mail.MessagingException;
@@ -39,6 +40,7 @@ public class SenderFormController {
     public Button btnStart;
     public TextArea areaMsg;
     public Button btnCheck;
+    public TextField txtTitle;
 
     String [] split;
 
@@ -47,8 +49,11 @@ public class SenderFormController {
     public static  String TEST_MAIL;
     private Gmail service;
 
+    private Message msg;
+
     @FXML
     void initialize() throws GeneralSecurityException, IOException {
+        btnStart.setDisable(true);
         NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         GsonFactory gsonFactory=GsonFactory.getDefaultInstance();
         service = new Gmail.Builder(HTTP_TRANSPORT, gsonFactory, getCredentials(HTTP_TRANSPORT,gsonFactory))
@@ -90,7 +95,7 @@ public class SenderFormController {
         email.writeTo(buffer);
         byte[] rawMessageBytes = buffer.toByteArray();
         String encodedEmail = Base64.encodeBase64URLSafeString(rawMessageBytes);
-        Message msg = new Message();
+        msg = new Message();
         msg.setRaw(encodedEmail);
 
         try {
@@ -109,10 +114,20 @@ public class SenderFormController {
     }
 
     public void btnStartOnAction(ActionEvent actionEvent) {
+        for (int i = 0; i < split.length; i++) {
+            try {
+                sendMail(String.valueOf(txtTitle),areaMsg.getText(),TEST_MAIL);
 
+                areaSendFinish.appendText(i+1+") successfully send = \n"+split[i]+"\n msg id"+msg.getId());
+            } catch (IOException | MessagingException e) {
+                areaSendFinish.appendText(i+1+") not send = \n"+split[i]);
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void btnCheckOnAction(ActionEvent actionEvent) {
+
         countAt=0;
 
         for (int i = 0; i < areaEmails.getText().length(); i++) {
@@ -125,7 +140,7 @@ public class SenderFormController {
         System.out.println(split.length);
 
         if (split.length == countAt){
-            System.out.println("finalize !");
+            btnStart.setDisable(false);
         }else {
             new Alert(Alert.AlertType.ERROR,"please enter emails one by one !").show();
         }

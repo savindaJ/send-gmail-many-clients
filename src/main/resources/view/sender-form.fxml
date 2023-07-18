@@ -15,7 +15,7 @@
       <TextArea fx:id="areaSendFinish" layoutX="599.0" layoutY="40.0" prefHeight="550.0" prefWidth="208.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
       <Button fx:id="btnStart" layoutX="417.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="25.0" prefWidth="50.0" text="Start" />
       <Button fx:id="btnCheck" layoutX="9.0" layoutY="565.0" mnemonicParsing="false" onAction="#btnCheckOnAction" text="Check" />
-      <TextField layoutX="260.0" layoutY="107.0" prefHeight="25.0" prefWidth="380.0" />
+      <TextField fx:id="txtTitle" layoutX="260.0" layoutY="107.0" prefHeight="25.0" prefWidth="380.0" />
       <TextArea fx:id="areaMsg" layoutX="236.0" layoutY="163.0" prefHeight="318.0" prefWidth="438.0" />
       <Label layoutX="86.0" layoutY="29.0" text="gmail List" />
       <Label layoutX="416.0" layoutY="77.0" text="Title" />
