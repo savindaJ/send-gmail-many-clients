@@ -125,7 +125,7 @@ public class SenderFormController {
 
                 areaSendFinish.setStyle("-fx-text-fill: green");
 
-                areaSendFinish.appendText(i+1+") successfully send = \n"+split[i]+"\nmsg id"+msg.getId());
+                areaSendFinish.appendText(i+1+") successfully send:"+split[i]+"\n");
 
             } catch (IOException | MessagingException e) {
                 areaSendFinish.appendText(i+1+") not send = \n"+split[i]);

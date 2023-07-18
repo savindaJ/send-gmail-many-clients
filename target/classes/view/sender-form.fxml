@@ -7,19 +7,31 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gmailsender.controller.SenderFormController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gmailsender.controller.SenderFormController">
    <children>
-      <TextArea fx:id="areaEmails" layoutX="10.0" layoutY="54.0" prefHeight="505.0" prefWidth="215.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="54.0" />
-      <TextArea fx:id="areaSendFinish" layoutX="599.0" layoutY="40.0" prefHeight="550.0" prefWidth="208.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-      <Button fx:id="btnStart" layoutX="417.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="25.0" prefWidth="50.0" text="Start" />
-      <Button fx:id="btnCheck" layoutX="9.0" layoutY="565.0" mnemonicParsing="false" onAction="#btnCheckOnAction" text="Check" />
+      <TextArea fx:id="areaEmails" layoutX="10.0" layoutY="54.0" prefHeight="505.0" prefWidth="215.0" style="-fx-background-color: green;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="54.0" />
+      <TextArea fx:id="areaSendFinish" layoutX="599.0" layoutY="40.0" prefHeight="550.0" prefWidth="208.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <Button id="glass" fx:id="btnStart" layoutX="416.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="38.0" prefWidth="86.0" stylesheets="@../sheets/stylesheet.css" text="Start" />
+      <Button id="red" fx:id="btnCheck" layoutX="9.0" layoutY="565.0" mnemonicParsing="false" onAction="#btnCheckOnAction" stylesheets="@../sheets/stylesheet.css" text="Check" />
       <TextField fx:id="txtTitle" layoutX="260.0" layoutY="107.0" prefHeight="25.0" prefWidth="380.0" />
-      <TextArea fx:id="areaMsg" layoutX="236.0" layoutY="163.0" prefHeight="318.0" prefWidth="438.0" />
-      <Label layoutX="86.0" layoutY="29.0" text="gmail List" />
-      <Label layoutX="416.0" layoutY="77.0" text="Title" />
-      <Label layoutX="759.0" layoutY="15.0" text="Send Finish" />
+      <TextArea fx:id="areaMsg" layoutX="236.0" layoutY="163.0" prefHeight="318.0" prefWidth="438.0" style="-fx-background-color: blue;" />
+      <Label layoutX="86.0" layoutY="29.0" text="gmail List">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="416.0" layoutY="77.0" text="Title">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="759.0" layoutY="15.0" text="Send Finish">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <MenuBar layoutX="9.0" layoutY="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -34,6 +46,19 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="409.0" layoutY="141.0" text="Message" />
+      <Label layoutX="409.0" layoutY="141.0" text="Message">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <ImageView fitHeight="63.0" fitWidth="47.0" layoutX="635.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-paper-plane.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="389.0" layoutY="17.0" text="Send Gmails" textFill="#435de4">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
