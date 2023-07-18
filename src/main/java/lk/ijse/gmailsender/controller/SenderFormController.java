@@ -74,7 +74,7 @@ public class SenderFormController {
     }
 
     public void sendMail(String subject, String massage,String TEST_MAIL) throws  IOException, MessagingException {
-        this.TEST_MAIL=TEST_MAIL;
+        SenderFormController.TEST_MAIL =TEST_MAIL;
 
         // Encode as MIME message
         Properties props = new Properties();
