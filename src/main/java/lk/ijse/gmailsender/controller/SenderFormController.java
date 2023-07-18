@@ -88,6 +88,11 @@ public class SenderFormController {
         email.setFrom(new InternetAddress(TEST_MAIL));
         email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(TEST_MAIL));
         email.setSubject(subject);
+
+        email.setContent
+                ("<h1>This is a test</h1>"
+                                + "<img src=\"G:/My All Projecs/gmail-sender-meny-clints/src/main/resources/assets/my1.jpg\">",
+                        "text/html");
         email.setText(massage);
 
         // Encode and wrap the MIME message into a gmail message
@@ -101,8 +106,8 @@ public class SenderFormController {
         try {
             // Create the draft message
             msg = service.users().messages().send("me", msg).execute();
-            System.out.println("Draft id: " + msg.getId());
-            System.out.println(msg.toPrettyString());
+//            System.out.println("Draft id: " + msg.getId());
+//            System.out.println(msg.toPrettyString());
         } catch (GoogleJsonResponseException e) {
             GoogleJsonError error = e.getDetails();
             if (error.getCode() == 403) {
@@ -130,13 +135,10 @@ public class SenderFormController {
     }
 
     public void btnCheckOnAction(ActionEvent actionEvent) {
-
         countAt=0;
-
         for (int i = 0; i < areaEmails.getText().length(); i++) {
             if (areaEmails.getText().charAt(i)=='@'){
                 countAt++;
-                System.out.println(countAt);
             }
         }
         split = areaEmails.getText().split("\n");
